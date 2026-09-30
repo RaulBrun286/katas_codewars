@@ -1,5 +1,6 @@
 {
     "conventionalCommits.scopes": [
         "multi_table_for_number"
-    ]
+    ],
+    "python-envs.defaultEnvManager": "ms-python.python:system"
 }
