@@ -3,6 +3,5 @@ def digital_root(numero):
     while numero >= 10:
         # Suma los dígitos del número actual
         numero = sum(int(digito) for digito in str(numero))
-    
+
     return numero
-    
