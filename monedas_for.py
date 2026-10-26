@@ -1,33 +1,38 @@
-def euros(money):
+def change_machine(money):
 
-    if type(money) is not int or money < 0:
+    if money is None or type(money) is not int:
         return None
-
+    if money < 0:
+        return None
     list_coins = [5, 2, 1]
-    result = []
-    rest = list([money])
+    change = []
+    restant_coins = money
     for coin in list_coins:
-        result.append(rest[0] // coin)
-        rest[0] = rest[0] % coin
+        change.append(restant_coins // coin)
+        restant_coins = restant_coins % coin
 
-    return result
+    assert not restant_coins
+
+    return tuple(change)
 
 
-print(euros(8))
+print(change_machine(8))
 # >>> (1, 1, 1)  # una de 5 cénts, una de 2 cénts y una de 1 cént.
-print(euros(5))
+print(change_machine(5))
 # >>> (1, 0, 0)  # una 5 cénts, ninguna de 2 cénts y ninguna de 1 cént.
-print(euros(29))
+print(change_machine(29))
 # >>> (5, 2, 0)  # cinco de 5 cénts, dos de 2 cénts y ninguna de 1 cént.
-print(euros(0))
+print(change_machine(0))
 # >>> (0, 0, 0) # ninguna de 5 cénts, ninguna de 2 cénts y 1 de cénts.
-print(euros(170))
+print(change_machine(170))
 # >>> (34, 0, 0)  # treinta y cuatro de 5 cénts, ninguna de 2 cénts y ninguna de 1 cént.
-print(euros(267))
+print(change_machine(267))
 # >>> (53, 1, 0)  # cincuenta y tres de 5 cénts, una de 2 cénts y ninguna de 1 cént.
-print(euros(-2))
+print(change_machine(-2))
 # >>> None
-print(euros(5.576))
+print(change_machine(5.576))
 # >>> None
-print(euros("5"))
+print(change_machine("5"))
+# >>> None
+print(change_machine(None))
 # >>> None
