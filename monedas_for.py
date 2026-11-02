@@ -2,6 +2,7 @@ def change_machine(money):
 
     if money is None or type(money) is not int:
         return None
+    
     if money < 0:
         return None
     list_coins = [5, 2, 1]
